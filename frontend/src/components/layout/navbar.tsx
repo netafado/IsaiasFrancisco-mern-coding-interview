@@ -10,9 +10,10 @@ export const NavBar: React.FC<RouteComponentProps> = () => {
         <img
           src="https://beon.studio/assets/img/logo_beon_white.png"
           style={{ marginRight: "auto", width: "150px" }}
+          alt={"Beon Logo"}
         />
 
-        <Button color="inherit" href="/">
+        <Button color="inherit" href="/flights">
           Flights
         </Button>
       </Toolbar>

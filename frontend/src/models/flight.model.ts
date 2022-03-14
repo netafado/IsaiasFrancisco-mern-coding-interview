@@ -7,6 +7,7 @@ export enum FlightStatuses {
 }
 
 export interface FlightModel {
+  id: string;
   code: string;
   origin: string;
   destination: string;

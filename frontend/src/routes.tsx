@@ -8,7 +8,7 @@ export function Routes() {
   return (
     <Layout>
       <Router>
-        <FlightsPage path="flights" />
+        <FlightsPage path="/flights" />
       </Router>
     </Layout>
   );

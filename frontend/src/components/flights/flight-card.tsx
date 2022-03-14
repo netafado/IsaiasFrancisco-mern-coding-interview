@@ -1,5 +1,5 @@
-import React, { FC } from "react";
-import { Box, Card, Container, Typography } from "@material-ui/core";
+import React, { FC, useState } from "react";
+import { Box, Card, Container, Typography, FormControl, InputLabel, MenuItem, Select } from "@material-ui/core";
 
 import { FlightStatuses } from "../../models/flight.model";
 
@@ -12,6 +12,7 @@ interface FlightCardProps {
 }
 
 const mapFlightStatusToColor = (status: FlightStatuses) => {
+
   const mappings = {
     [FlightStatuses.Arrived]: "#1ac400",
     [FlightStatuses.Delayed]: "##c45800",
@@ -26,6 +27,10 @@ const mapFlightStatusToColor = (status: FlightStatuses) => {
 export const FlightCard: React.FC<FlightCardProps> = (
   props: FlightCardProps
 ) => {
+  const [status, setStatus] = useState("");
+  const handleChangeStatus = (e: any) =>{
+    setStatus(e.target.value)
+  }
   return (
     <Card
       style={{
@@ -48,6 +53,20 @@ export const FlightCard: React.FC<FlightCardProps> = (
       <Box>
         <Typography>Destination: {props.destination}</Typography>
       </Box>
+      <FormControl fullWidth>
+        <InputLabel id="demo-simple-select-label">Change Status</InputLabel>
+        <Select
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          value={status}
+          label="Change Status"
+          onChange={handleChangeStatus}
+        >
+          <MenuItem value={10}>Ten</MenuItem>
+          <MenuItem value={20}>Twenty</MenuItem>
+          <MenuItem value={30}>Thirty</MenuItem>
+        </Select>
+      </FormControl>
     </Card>
   );
 };

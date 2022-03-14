@@ -14,6 +14,5 @@ export interface MutationError {
 
 export function useFlights() {
   const query = useQuery(["flights"], () => backendClient.getFlights());
-
   return query?.data?.data;
 }

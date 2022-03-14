@@ -25,6 +25,7 @@ export const FlightsPage: React.FC<RouteComponentProps> = () => {
         {flights?.length
           ? flights.map((flight: FlightModel) => (
               <FlightCard
+                key={flight.code}
                 origin={flight.origin}
                 destination={flight.destination}
                 code={flight.code}
